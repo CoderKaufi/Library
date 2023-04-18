@@ -1,0 +1,44 @@
+body{
+    overflow-x: hidden;
+    margin:0px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.newBookDiv{
+    display: flex;
+    width : 100vw;
+    height:5vh;
+    align-items: center;
+    justify-content: center;
+    gap : 1vw;
+
+}
+.newBookForm{
+    display:flex;
+    gap : 4vw;
+}
+#title1{
+    font-size: 1.5em;
+}
+header{
+    
+}
+h3{
+    margin-left:10vw;
+}
+.libraryGrid{
+    margin:0px;
+    display:grid;
+    width: 90vw;
+    grid-template-columns: repeat(4, 25vw);
+    justify-items: center;
+    align-items: center;
+    grid-template-rows: 25vw;
+    row-gap: 2vh;
+}
+#book{
+    background-color: antiquewhite;
+    border-radius: 5px;
+    height: 20vh;
+    width: 22vw;
+
+}
