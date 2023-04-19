@@ -50,30 +50,39 @@ function loopTroughBooks(){
 function bookForm(){
     
     form = document.createElement("form");
-    
     form.setAttribute("class", "newBookForm")
     newBookDiv.appendChild(form);
 
     title = document.createElement("input");
-    title.required = true;
     title.setAttribute("id","title")
+    title.setAttribute("placeholder", "Title of the book")
     form.appendChild(title);
 
     author = document.createElement("input");
     author.setAttribute("id","author")
+    author.setAttribute("placeholder", "Author");
     form.appendChild(author);
 
     pages = document.createElement("input");
     pages.setAttribute("type","number");
     pages.setAttribute("id","pages")
+    pages.setAttribute("min", "1")
+    pages.setAttribute("placeholder","number of pages")
     form.appendChild(pages);
 
+    readHolder = document.createElement("div");
+    form.appendChild(readHolder)
+    label = document.createElement("label");
+    label.setAttribute("for", "#read")
+    label.textContent = "Read the book?";
+    readHolder.appendChild(label)
     read = document.createElement("input");
     read.setAttribute("type", "checkbox");
     read.setAttribute("id","read")
-    form.appendChild(read);
     
-
+    readHolder.appendChild(read);
+    
+    
 }
 
 
@@ -91,10 +100,17 @@ document.body.appendChild(libraryGrid);
 bookForm();
 
 newBook.addEventListener("click", click=>{
-    addBookToLibrary(document.getElementById("title").value,
+    if(document.getElementById("title").value === "" || document.getElementById("author").value ===""
+    || document.getElementById("pages").value === "" ||  document.getElementById("read").checked ===""
+    ){
+        alert("You have to enter details about the book!")
+    }
+    else{
+        addBookToLibrary(document.getElementById("title").value,
         document.getElementById("author").value,
         document.getElementById("pages").value,
         document.getElementById("read").checked)
+    }
         deleteButtons.forEach(deleteButton => {
             deleteButton.addEventListener("click", click=>{
                 libraryGrid.removeChild(deleteButton.parentElement)
